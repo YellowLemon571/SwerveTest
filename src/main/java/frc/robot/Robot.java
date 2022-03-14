@@ -78,7 +78,6 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during autonomous. */
   @Override
   public void autonomousPeriodic() {
-    driveWithJoystick(false);
   }
 
   @Override
@@ -95,7 +94,7 @@ public class Robot extends TimedRobot {
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    driveWithJoystick(true);
+    driveWithJoystick();
   }
 
   @Override
@@ -116,13 +115,13 @@ public class Robot extends TimedRobot {
   @Override
   public void simulationPeriodic() {}
 
-  private void driveWithJoystick(boolean fieldRelative) {
+  private void driveWithJoystick() {
     final var xSpeed = -m_xSpeedLimiter.calculate(MathUtil.applyDeadband(m_joy.getRawAxis(1), 0.02)) * Drivetrain.kMaxSpeed;
 
     final var ySpeed = -m_ySpeedLimiter.calculate(MathUtil.applyDeadband(m_joy.getRawAxis(0), 0.02)) * Drivetrain.kMaxSpeed;
 
     final var rot = -m_rotLimiter.calculate(MathUtil.applyDeadband(m_joy.getRawAxis(2), 0.02)) * Drivetrain.kMaxAngularSpeed;
 
-    m_swerve.drive(xSpeed, ySpeed, rot, fieldRelative);
+    m_swerve.drive(xSpeed, ySpeed, rot);
   }
 }

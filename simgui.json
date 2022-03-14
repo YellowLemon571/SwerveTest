@@ -1,0 +1,33 @@
+{
+  "NTProvider": {
+    "types": {
+      "/FMSInfo": "FMSInfo",
+      "/LiveWindow/Drivetrain": "Subsystem",
+      "/LiveWindow/ExampleSubsystem": "Subsystem",
+      "/LiveWindow/SwerveModule": "Subsystem",
+      "/LiveWindow/Ungrouped/AnalogGyro[0]": "Gyro",
+      "/LiveWindow/Ungrouped/PIDController[1]": "PIDController",
+      "/LiveWindow/Ungrouped/PIDController[2]": "PIDController",
+      "/LiveWindow/Ungrouped/PIDController[3]": "PIDController",
+      "/LiveWindow/Ungrouped/PIDController[4]": "PIDController",
+      "/LiveWindow/Ungrouped/PIDController[5]": "PIDController",
+      "/LiveWindow/Ungrouped/PIDController[6]": "PIDController",
+      "/LiveWindow/Ungrouped/PIDController[7]": "PIDController",
+      "/LiveWindow/Ungrouped/PIDController[8]": "PIDController",
+      "/LiveWindow/Ungrouped/PWMVictorSPX[0]": "Motor Controller",
+      "/LiveWindow/Ungrouped/PWMVictorSPX[1]": "Motor Controller",
+      "/LiveWindow/Ungrouped/PWMVictorSPX[2]": "Motor Controller",
+      "/LiveWindow/Ungrouped/PWMVictorSPX[3]": "Motor Controller",
+      "/LiveWindow/Ungrouped/PWMVictorSPX[4]": "Motor Controller",
+      "/LiveWindow/Ungrouped/PWMVictorSPX[5]": "Motor Controller",
+      "/LiveWindow/Ungrouped/PWMVictorSPX[6]": "Motor Controller",
+      "/LiveWindow/Ungrouped/PWMVictorSPX[7]": "Motor Controller",
+      "/LiveWindow/Ungrouped/Scheduler": "Scheduler"
+    }
+  },
+  "NetworkTables": {
+    "SmartDashboard": {
+      "open": true
+    }
+  }
+}

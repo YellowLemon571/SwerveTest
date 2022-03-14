@@ -37,8 +37,8 @@ public class SwerveModule extends SubsystemBase {
     int turningEncoderChannelA,
     int turningEncoderChannelB
   ) {
-    m_driveMotor = new PWMVictorSPX(0);
-    m_turningMotor = new PWMVictorSPX(1);
+    m_driveMotor = new PWMVictorSPX(driveMotorChannel);
+    m_turningMotor = new PWMVictorSPX(turningMotorChannel);
 
     m_turningEncoder = new Encoder(turningEncoderChannelA, turningEncoderChannelB);
     m_turningEncoder.setDistancePerPulse(2 * Math.PI / kEncoderResolution);

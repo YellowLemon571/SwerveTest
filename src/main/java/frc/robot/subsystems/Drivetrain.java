@@ -7,7 +7,6 @@ package frc.robot.subsystems;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
-import edu.wpi.first.wpilibj.AnalogGyro;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Drivetrain extends SubsystemBase {
@@ -25,21 +24,14 @@ public class Drivetrain extends SubsystemBase {
   private final SwerveModule m_backLeft = new SwerveModule(4, 5, 4, 5);
   private final SwerveModule m_backRight = new SwerveModule(6, 7, 6, 7);
 
-  private final AnalogGyro m_gyro = new AnalogGyro(0);
-
   private final SwerveDriveKinematics m_kinematics = new SwerveDriveKinematics(m_frontLeftLocation, m_frontRightLocation, m_backLeftLocation, m_backRightLocation);
 
   /** Creates a new Drivetrain. */
   public Drivetrain() {
-    m_gyro.reset();
   }
 
-  public void drive(double xSpeed, double ySpeed, double rot, boolean fieldRelative) {
-    var swerveModuleStates = m_kinematics.toSwerveModuleStates(
-      fieldRelative
-        ? ChassisSpeeds.fromFieldRelativeSpeeds(xSpeed, ySpeed, rot, m_gyro.getRotation2d())
-        : new ChassisSpeeds(xSpeed, ySpeed, rot)
-    );
+  public void drive(double xSpeed, double ySpeed, double rot) {
+    var swerveModuleStates = m_kinematics.toSwerveModuleStates(new ChassisSpeeds(xSpeed, ySpeed, rot));
     SwerveDriveKinematics.desaturateWheelSpeeds(swerveModuleStates, kMaxSpeed);
     m_frontLeft.setDesiredState(swerveModuleStates[0]);
     m_frontRight.setDesiredState(swerveModuleStates[1]);
