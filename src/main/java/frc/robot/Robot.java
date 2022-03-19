@@ -95,6 +95,15 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     driveWithJoystick();
+
+    int pov = m_joy.getPOV();
+    if (pov == 90) {
+      final var rot = m_rotLimiter.calculate(MathUtil.applyDeadband(1.0, 0.02)) * Drivetrain.kMaxAngularSpeed;
+      m_swerve.drive(0, 0, rot);
+    } else if (pov == 270) {
+      final var rot = m_rotLimiter.calculate(MathUtil.applyDeadband(-1.0, 0.02)) * Drivetrain.kMaxAngularSpeed;
+      m_swerve.drive(0, 0, rot);
+    }
   }
 
   @Override
